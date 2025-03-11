@@ -34,3 +34,14 @@ body {
         background-repeat: no-repeat, no-repeat, no-repeat;  
     }
 }
+
+.header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header img{
+    margin-top: 15px;
+}
