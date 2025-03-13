@@ -1,3 +1,25 @@
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('fonts/Inconsolata-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('fonts/Inconsolata-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('fonts/Inconsolata-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: light;
+}
+
+
 body {
     background-image: 
         url("../assets/images/overlay_top.svg"), 
@@ -7,8 +29,9 @@ body {
     background-position: top right, bottom left, center;  
     background-repeat: no-repeat, no-repeat, no-repeat;  
     min-height: 97vh;
-}
 
+    font-family: 'Inconsolata', monospace;
+}
 
 @media screen and (max-width: 1024px){
     body{
@@ -19,7 +42,9 @@ body {
 
         background-position: top right, bottom left, center;  
         background-repeat: no-repeat, no-repeat, no-repeat;
-        min-height: 98.3vh;  
+        min-height: 98.3vh; 
+        
+        font-family: 'Inconsolata', monospace;
     }
 }
 
@@ -32,6 +57,8 @@ body {
 
         background-position: top right, bottom left, center;  
         background-repeat: no-repeat, no-repeat, no-repeat;  
+
+        font-family: 'Inconsolata', monospace;
     }
 }
 
@@ -44,4 +71,21 @@ body {
 
 .header img{
     margin-top: 15px;
+}
+
+.welcome_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome_container h1{
+    color: #fff;
+}
+
+.welcome_container h2{
+    color: #D4D2D8;
+    font-weight: light;
 }
