@@ -23,8 +23,28 @@
           Garanta seu lugar na maior conferencia de programação do próximo ano
         </h2>
       </div>
-      <div>
-        <form></form>
+      <div class="align_center">
+        <form class="form_container">
+          <label class="input_img_section" for="image">
+              <img src="/src/assets/images/icon-upload.svg" alt="Upload Icon">
+              <p>Drag and drop or click to upload</p>
+          </label>
+          <input type="file" id="image" name="image" accept="image/*">
+          <p style="font-size: 12px; color: #aaa; margin-top: 5px;">Upload your photo (JPG or PNG, max size: 500KB).</p>
+          <div class="input_section">
+              <label class="input_label" for="fname">Full Name</label>
+              <input class="input" type="text" id="fname" name="fname">
+          </div>
+          <div class="input_section">
+              <label class="input_label" for="email">Email Address</label>
+              <input class="input" type="email" id="email" name="email" placeholder="example@email.com">
+          </div>
+          <div class="input_section">
+              <label class="input_label" for="github">GitHub Username</label>
+              <input class="input" type="text" id="github" name="github" placeholder="@yourusername">
+          </div>
+          <input class="submit" type="submit" value="Generate My Ticket">
+      </form>
       </div>
     </main>
   </body>

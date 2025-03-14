@@ -87,5 +87,99 @@ body {
 
 .welcome_container h2{
     color: #D4D2D8;
+    font-size: 12px;
     font-weight: light;
+}
+
+.align_center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+}
+
+.input_img_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border: 2px dashed #aaa;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.input_img_section:hover {
+    border-color: #F87C6F;
+}
+
+.input_img_section img {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.input_img_section p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.input_section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.input_label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #D4D2D8;
+}
+
+.input {
+    color: white;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.input::placeholder {
+    color: #aaa;
+}
+
+.submit {
+    width: 100%;
+    height: 40px;
+    background-color: #F87C6F;
+    border-radius: 5px;
+    border: none;
+    color: #0A0528;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit:hover {
+    background-color: #E85C4F;
 }
