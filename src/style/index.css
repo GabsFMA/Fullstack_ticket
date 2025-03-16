@@ -105,6 +105,15 @@ body {
     padding: 30px;
     border-radius: 10px;
     width: 350px;
+    gap: 20px;
+}
+
+.form_container.sucess small{
+    color: rgb(0, 255, 85);
+}
+
+.form_container.error small{
+    color: red;
 }
 
 .input_img_section {
@@ -166,6 +175,13 @@ input[type="file"] {
     color: #aaa;
 }
 
+.form_info_section{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
 .submit {
     width: 100%;
     height: 40px;
@@ -181,5 +197,10 @@ input[type="file"] {
 }
 
 .submit:hover {
-    background-color: #E85C4F;
+    background-color: #E85C4F
+}
+
+small{
+    color: #fff;
+    visibility: hidden;
 }
