@@ -1,37 +1,40 @@
-const form = document.getElementById('form_container');
-const username = document.getElementById('name');
-const email = document.getElementById('email');
-const github = document.getElementById('github');
+const form = document.querySelector('form');
+const email = document.querySelector('#email');
 
-form.addEventListener('submit', (e) => { 
-  e.preventDefault();
-
-  checkInputs();
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    checkInputs();
 });
 
-function checkInputs(){
-    const nameValue = username.value;
-    const emailValue = email.value;
-    const githubValue = github.value;
+function checkInputs() {
+    console.log("Fui chamado");
 
-    if(nameValue === ''){
-        setErrorFor(username, 'Name cannot be blank');
+    const emailValue = email.value.trim();
+
+    if (emailValue === "") {
+        setErrorFor(email, 'O email é obrigatório');
+    } else if(!checkEmail(emailValue)){
+        setErrorFor(email, 'Insira um email válido')
     } else {
-        setSuccessFor(username);
+        setSuccessFor(email);
     }
 }
 
-function setErrorFor(input, message){
-    const form_container = input.parentElement;
-    const small = form_container.querySelector('small');
+function setErrorFor(input, message) {
+    const inputSection = input.parentElement;
+    const small = inputSection.querySelector('small');
 
     small.innerText = message;
-
-    form_container.class = 'form_container error';
+    inputSection.className = 'input-section error';
 }
 
-function setSuccessFor(input){
-    const form_container = input.parentElement;
-
-    form_container.class = 'form_container sucess';
+function setSuccessFor(input) {
+    const inputSection = input.parentElement;
+    inputSection.className = 'input-section success';
 }
+
+function checkEmail(email) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      email
+    );
+  }

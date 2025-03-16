@@ -24,40 +24,39 @@
         </h2>
       </div>
       <div class="align_center">
-        <form class="form_container" id="form">
-
+        <form class="form" id="form" novalidate>
           <label class="input_img_section" for="image">
-              <img src="/src/assets/images/icon-upload.svg" alt="Upload Icon">
-              <p>Drag and drop or click to upload</p>
+            <img src="/src/assets/images/icon-upload.svg" alt="Upload Icon" />
+            <p>Drag and drop or click to upload</p>
           </label>
-          <input type="file" id="image" name="image" accept="image/*">
+          <input type="file" id="image" name="image" accept="image/*" />
           <div class="form_info_section">
-            <img src="/src/assets/images/icon-info.svg" alt="Info Icon">
-            <small class="small" style="font-size: 12px; color: #aaa; margin-top: 5px;">Upload your photo (JPG or PNG, max size: 500KB).</small>
+            <img src="/src/assets/images/icon-info.svg" alt="Info Icon" />
+            <small class="small">
+              Upload your photo (JPG or PNG, max size: 500KB).
+              </small>
           </div>
 
           <div class="input_section">
-              <label class="input_label" for="fname">Full Name</label>
-              <input class="input" type="text" id="name" name="fname">
-              <small class="small">Mensagem de erro</small>
+            <label class="input_label" for="fullName">Full Name</label>
+            <input class="input" type="text" id="fullName"/>
           </div>
+
+          <div class="input-section">
+            <label class="input_label" for="email">Email Address</label>
+            <input class="input" type="email" id="email" placeholder="example@email.com"/>
+            <small class="small">Mensagem de erro</small>
+        </div>
 
           <div class="input_section">
-              <label class="input_label" for="email">Email Address</label>
-              <input class="input" type="email" id="email" name="email" placeholder="example@email.com">
-              <small class="small">Mensagem de erro</small>
+            <label class="input_label" for="github">GitHub Username</label>
+            <input class="input" type="text" id="github" placeholder="@yourusername"/>
           </div>
 
-          <div class="input_section">
-              <label class="input_label" for="github">GitHub Username</label>
-              <input class="input" type="text" id="github" name="github" placeholder="@yourusername">
-          </div>
-
-          <input class="submit" type="submit" value="Generate My Ticket">
-
-      </form>
+          <button class="submit" id="submit" type="submit">Generate my ticket</button>
+        </form>
       </div>
     </main>
-    <script src="/src/scripts/form.js"></script>
+    <script src="src/javascript/form.js"></script>
   </body>
 </html>

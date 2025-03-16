@@ -19,7 +19,6 @@
     font-style: light;
 }
 
-
 body {
     background-image: 
         url("../assets/images/overlay_top.svg"), 
@@ -98,7 +97,7 @@ body {
     justify-content: center;
 }
 
-.form_container {
+.form{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,13 +107,7 @@ body {
     gap: 20px;
 }
 
-.form_container.sucess small{
-    color: rgb(0, 255, 85);
-}
 
-.form_container.error small{
-    color: red;
-}
 
 .input_img_section {
     display: flex;
@@ -200,7 +193,23 @@ input[type="file"] {
     background-color: #E85C4F
 }
 
-small{
-    color: #fff;
+.form_info_section .small{
+    font-size: 12px; 
+    color: #aaa; 
+    margin-top: "5px";
+}
+
+.input-section .small{
     visibility: hidden;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.input-section.error input {
+    border-color: #e74c3c;
+}
+
+.input-section.error small {
+    visibility: visible;
+    color: #e74c3c;
 }
