@@ -9,7 +9,7 @@
       sizes="32x32"
       href="/src/assets/images/favicon-32x32.png"
     />
-    <title>Ticket Generator</title>
+    <title>Gerador de tiquete</title>
     <link rel="stylesheet" href="/src/style/index.css" />
   </head>
   <body>
@@ -20,40 +20,43 @@
       <div class="welcome_container">
         <h1>Sua jornada na Coding Conf 2025 começa aqui!</h1>
         <h2>
-          Garanta seu lugar na maior conferencia de programação do próximo ano
+          Garanta seu lugar na maior conferência de programação do próximo ano
         </h2>
       </div>
       <div class="align_center">
         <form class="form" id="form" novalidate>
           <label class="input_img_section" for="image">
             <img src="/src/assets/images/icon-upload.svg" alt="Upload Icon" />
-            <p>Drag and drop or click to upload</p>
+            <p>Segure e arraste ou clique para carregar</p>
           </label>
-          <input type="file" id="image" name="image" accept="image/*" />
+          <div class="input-section">
+            <input type="file" id="image" accept="image/png, image/jpeg">
+            <small></small>
+        </div>
           <div class="form_info_section">
             <img src="/src/assets/images/icon-info.svg" alt="Info Icon" />
             <small class="small">
-              Upload your photo (JPG or PNG, max size: 500KB).
-              </small>
+              Carregue sua foto (JPG ou PNG, máximo: 500KB).
+            </small>
           </div>
 
-          <div class="input_section">
-            <label class="input_label" for="fullName">Full Name</label>
+          <div class="input-section">
+            <label class="input_label" for="fullName">Nome completo</label>
             <input class="input" type="text" id="fullName"/>
           </div>
 
           <div class="input-section">
-            <label class="input_label" for="email">Email Address</label>
-            <input class="input" type="email" id="email" placeholder="example@email.com"/>
-            <small class="small">Mensagem de erro</small>
-        </div>
-
-          <div class="input_section">
-            <label class="input_label" for="github">GitHub Username</label>
-            <input class="input" type="text" id="github" placeholder="@yourusername"/>
+            <label class="input_label" for="email">Endereço de email</label>
+            <input class="input" type="email" id="email" placeholder="exemplo@email.com"/>
+            <small class="small"></small>
           </div>
 
-          <button class="submit" id="submit" type="submit">Generate my ticket</button>
+          <div class="input-section">
+            <label class="input_label" for="github">Usuário do GitHub</label>
+            <input class="input" type="text" id="github" placeholder="@usuário"/>
+          </div>
+
+          <button class="submit" id="submit" type="submit">Gerar meu tiquete</button>
         </form>
       </div>
     </main>

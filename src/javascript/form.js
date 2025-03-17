@@ -28,11 +28,6 @@ function setErrorFor(input, message) {
     inputSection.className = 'input-section error';
 }
 
-function setSuccessFor(input) {
-    const inputSection = input.parentElement;
-    inputSection.className = 'input-section success';
-}
-
 function checkEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
       email
