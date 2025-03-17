@@ -23,12 +23,13 @@ body {
     background-image: 
         url("../assets/images/overlay_top.svg"), 
         url("../assets/images/overlay_bottom_desktop.svg"),  
+        url("../assets/images/pattern-lines.svg"),
+        url("../assets/images/pattern-circle.svg"),
         url("../assets/images/background-desktop.png");
 
-    background-position: top right, bottom left, center;  
-    background-repeat: no-repeat, no-repeat, no-repeat;  
+    background-position: top right, bottom left, top, center right, center;  
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;  
     min-height: 97vh;
-
     font-family: 'Inconsolata', monospace;
 }
 
@@ -37,10 +38,11 @@ body {
         background-image: 
             url("../assets/images/overlay_top.svg"), 
             url("../assets/images/overlay_bottom_tablet_mobile.svg"), 
+            url("../assets/images/pattern-lines.svg"),
             url("../assets/images/background-tablet.png");
 
-        background-position: top right, bottom left, center;  
-        background-repeat: no-repeat, no-repeat, no-repeat;
+        background-position: top right, bottom left, top, center;  
+        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
         min-height: 98.3vh; 
         
         font-family: 'Inconsolata', monospace;
@@ -52,10 +54,11 @@ body {
         background-image: 
             url("../assets/images/overlay_top.svg"),
             url("../assets/images/overlay_bottom_tablet_mobile.svg"), 
+            url("../assets/images/pattern-lines.svg"),
             url("../assets/images/background-mobile.png");
 
-        background-position: top right, bottom left, center;  
-        background-repeat: no-repeat, no-repeat, no-repeat;  
+        background-position: top right, bottom left, top, center;  
+        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;  
 
         font-family: 'Inconsolata', monospace;
     }
