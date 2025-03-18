@@ -130,6 +130,14 @@ body {
     border-color: #F87C6F;
 }
 
+.form_info_section.error small {
+    color: #e74c3c;
+}
+
+.form_info_section.error .icon {
+    color: #e74c3c;
+}
+
 .input_img_section img {
     width: 40px;
     margin-bottom: 10px;
@@ -144,6 +152,10 @@ body {
 input[type="file"]::file-selector-button {
     display: none;
 }
+
+input[type="file"] {
+    display: none;
+  }
 
 .input-section {
     width: 100%;
