@@ -4,6 +4,8 @@ const imagem = document.querySelector('#image');
 const name = document.querySelector('#fullName');
 const gitHub = document.querySelector('#github');
 const uploadIcon = document.querySelector('.input_img_section img');
+const removeButton = document.querySelector('#remove');
+const changeButton = document.querySelector('#change');
 
 imagem.addEventListener('change', () => {
     if (imagem.files && imagem.files[0]) {
@@ -16,6 +18,7 @@ imagem.addEventListener('change', () => {
             reader.onload = (e) => {
                 uploadIcon.src = e.target.result; 
                 uploadIcon.alt = 'Imagem carregada'; 
+                setSuccessForImage();
             };
 
             reader.readAsDataURL(file); 
@@ -28,6 +31,26 @@ imagem.addEventListener('change', () => {
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     checkInputs();
+});
+
+removeButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    uploadIcon.src = '/src/assets/images/icon-upload.svg';
+    uploadIcon.alt = 'Upload icon';
+
+    const p = document.querySelector('.input_img_section p'); 
+    const buttons = document.querySelector('.input_img_section_buttons'); 
+
+    p.style.visibility = 'visible'; 
+    buttons.style.visibility = 'hidden'; 
+
+    imagem.value = '';
+});
+
+changeButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    imagem.click();
 });
 
 function checkInputs() {
@@ -95,13 +118,20 @@ function setErrorFor(input, message) {
     inputSection.className = 'input-section error';
 }
 
-function setErrorForImage(input, message) {
+function setErrorForImage(message) {
     const formInfoSection = document.querySelector('.form_info_section'); 
     const small = formInfoSection.querySelector('small'); 
 
     small.innerText = message; 
     formInfoSection.className = 'form_info_section error'; 
     
+}
+function setSuccessForImage() {
+    const p = document.querySelector('.input_img_section p'); 
+    const buttons = document.querySelector('.input_img_section_buttons'); 
+
+    p.style.visibility = 'hidden'; 
+    buttons.style.visibility = 'visible'; 
 }
 
 function checkEmail(email) {

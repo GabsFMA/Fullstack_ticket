@@ -156,6 +156,7 @@ body {
     font-size: 14px;
     color: #D4D2D8;
     margin: 0;
+    visibility: visible;
 }
 
 input[type="file"]::file-selector-button {
@@ -165,7 +166,28 @@ input[type="file"]::file-selector-button {
 input[type="file"] {
     display: none;
   }
-  
+
+.input_img_section_buttons{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    visibility: hidden;
+}
+
+.input_img_section .img_button{
+    background-color: #2a2545; 
+    color: #aaa; 
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 6px; 
+    cursor: pointer;
+    transition: 0.3s;
+}
+ 
+.input_img_section .img_button:hover{
+    text-decoration: underline;
+}
 
 .input-section {
     width: 100%;
