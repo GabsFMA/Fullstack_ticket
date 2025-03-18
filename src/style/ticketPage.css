@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('fonts/Inconsolata-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('fonts/Inconsolata-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    src: url('fonts/Inconsolata-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: light;
+}
+
+body {
+    background-image: 
+        url("../assets/images/overlay_top.svg"), 
+        url("../assets/images/overlay_bottom_desktop.svg"),  
+        url("../assets/images/pattern-lines.svg"),
+        url("../assets/images/pattern-circle.svg"),
+        url("../assets/images/background-desktop.png");
+
+    background-position: top right, bottom left, top, center right, center;  
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;  
+    min-height: 97vh;
+    font-family: 'Inconsolata', monospace;
+}
+
+@media screen and (max-width: 1024px){
+    body{
+        background-image: 
+            url("../assets/images/overlay_top.svg"), 
+            url("../assets/images/overlay_bottom_tablet_mobile.svg"), 
+            url("../assets/images/pattern-lines.svg"),
+            url("../assets/images/background-tablet.png");
+
+        background-position: top right, bottom left, top, center;  
+        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+        min-height: 98.3vh; 
+        
+        font-family: 'Inconsolata', monospace;
+    }
+}
+
+@media screen and (max-width: 768px){
+    body{
+        background-image: 
+            url("../assets/images/overlay_top.svg"),
+            url("../assets/images/overlay_bottom_tablet_mobile.svg"), 
+            url("../assets/images/pattern-lines.svg"),
+            url("../assets/images/background-mobile.png");
+
+        background-position: top right, bottom left, top, center;  
+        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;  
+
+        font-family: 'Inconsolata', monospace;
+    }
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.header img {
+    height: 40px;
+}

@@ -107,6 +107,7 @@ function checkInputs() {
         console.log(`Nome: ${nameValue}`);
         console.log(`Email: ${emailValue}`);
         console.log(`GitHub: ${gitHubValue}`);
+        window.location.href = '/src/pages/ticketPage.html';
     }
 }
 
