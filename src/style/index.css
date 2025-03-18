@@ -134,7 +134,11 @@ body {
     color: #e74c3c;
 }
 
-.form_info_section.error .icon {
+.fa-circle-info{
+    color: #D4D2D8;
+}
+
+.form_info_section.error .fa-circle-info {
     color: #e74c3c;
 }
 
@@ -156,6 +160,7 @@ input[type="file"]::file-selector-button {
 input[type="file"] {
     display: none;
   }
+  
 
 .input-section {
     width: 100%;

@@ -34,7 +34,7 @@
             <small></small>
         </div>
           <div class="form_info_section">
-            <img src="/src/assets/images/icon-info.svg" alt="Info Icon" class="icon"/>
+            <i class="fa-solid fa-circle-info"></i>
             <small class="small">
               Carregue sua foto (JPG ou PNG, máximo: 500KB).
             </small>
@@ -42,18 +42,20 @@
 
           <div class="input-section">
             <label class="input_label" for="fullName">Nome completo</label>
-            <input class="input" type="text" id="fullName"/>
+            <input class="input" type="text" id="fullName" autocomplete="off"/>
+            <small class="small"></small>
           </div>
 
           <div class="input-section">
             <label class="input_label" for="email">Endereço de email</label>
-            <input class="input" type="email" id="email" placeholder="exemplo@email.com"/>
+            <input class="input" type="email" id="email" placeholder="exemplo@email.com" autocomplete="off"/>
             <small class="small"></small>
           </div>
 
           <div class="input-section">
             <label class="input_label" for="github">Usuário do GitHub</label>
-            <input class="input" type="text" id="github" placeholder="@usuário"/>
+            <input class="input" type="text" id="github" placeholder="@usuário" autocomplete="off"/>
+            <small class="small"></small>
           </div>
 
           <button class="submit" id="submit" type="submit">Gerar meu tiquete</button>
@@ -61,5 +63,6 @@
       </div>
     </main>
     <script src="src/javascript/form.js"></script>
+    <script src="https://kit.fontawesome.com/f9e7b324b1.js" crossorigin="anonymous"></script>
   </body>
 </html>
