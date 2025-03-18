@@ -3,6 +3,27 @@ const email = document.querySelector('#email');
 const imagem = document.querySelector('#image');
 const name = document.querySelector('#fullName');
 const gitHub = document.querySelector('#github');
+const uploadIcon = document.querySelector('.input_img_section img');
+
+imagem.addEventListener('change', () => {
+    if (imagem.files && imagem.files[0]) {
+        const file = imagem.files[0];
+        const validImageTypes = ['image/png', 'image/jpeg'];
+
+        if (validImageTypes.includes(file.type)) {
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                uploadIcon.src = e.target.result; 
+                uploadIcon.alt = 'Imagem carregada'; 
+            };
+
+            reader.readAsDataURL(file); 
+        } else {
+            console.log('Formato de imagem inválido. Apenas PNG ou JPEG são permitidos.');
+        }
+    }
+});
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -88,3 +109,5 @@ function checkEmail(email) {
       email
     );
   }
+
+  

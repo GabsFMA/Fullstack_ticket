@@ -130,6 +130,11 @@ body {
     border-color: #F87C6F;
 }
 
+.input_img_section img{
+    border-radius: 8px;
+    border: solid 1px #aaa;
+}
+
 .form_info_section.error small {
     color: #e74c3c;
 }
