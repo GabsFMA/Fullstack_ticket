@@ -184,12 +184,12 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 7rem;
+        gap: 5rem;
         width: 100%;
     }
 
     .ticket_main_info {
-        gap: 2rem;
+        gap: 10px;
     }
 
     .ticket_logo {
