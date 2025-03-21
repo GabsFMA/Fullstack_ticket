@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 @font-face {
     font-family: 'Inconsolata';
     src: url('fonts/Inconsolata-Bold.ttf') format('truetype');
@@ -109,137 +114,152 @@ body {
     color: transparent;
 }
 
-.ticket_section{
+.ticket {
+    position: relative;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
+    max-width: 600px; 
+    margin: 0 auto; 
     margin-top: 5rem;
 }
 
-.ticket_info{
+.ticket img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.ticket_info {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
-    align-items: center;
-    gap: 12rem;
+    flex-direction: row;
+    justify-content: space-between; 
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
-.ticket_info .ticket_id{
-    transform: rotate(90deg);
-    color: #aaa;
-    font-size: 24px;
-}
 
-.ticket_main_info{
+.ticket_content {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    margin-top: 2rem;
-    gap: 5rem;
+    justify-content: space-between;
+    
 }
 
-.ticket_user_info{
+
+.ticket_header {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    text-align: center;
 }
 
-.ticket_user_info img{
+.ticket_logo {
+    width: 80px; 
+    height: auto;
+}
+
+.location {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+
+.ticket_footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.user_picture img {
     width: 60px;
     height: 60px;
-    border-radius: 8px;
-    margin-right: 1rem;
+    border-radius: 8px; 
 }
 
-.ticket_user_info .user_info{
+.user_info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 0.3rem;
     color: #fff;
 }
 
-.location{
-    color: #aaa;
+.user_name span,
+.user_github span {
+    font-size: 0.9rem;
+}
+
+.user_github i {
+    margin-right: 0.5rem;
+}
+
+
+.ticket_id {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #fff;
+    
+}
+
+.ticket_id p{
+    transform: rotate(90deg);
 }
 
 @media screen and (max-width: 768px) {
-    .ticket_section {
-        margin-top: 2rem;
-        width: 100%;
-    }
-
-    .ticket {
-        width: 90%;
-    }
-
-    .ticket img {
-        max-width: 90%;
-        height: auto;
-    }
-
-    .ticket_info {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5rem;
-        width: 100%;
-    }
-
-    .ticket_main_info {
-        gap: 10px;
-    }
-
     .ticket_logo {
-        width: 60px; 
+        width: 60px;
     }
 
     .location {
-        font-size: 12px; 
+        font-size: 0.8rem;
     }
 
-    .ticket_user_info {
-        align-items: center;
-        justify-content: center;
-        gap: 0.3rem;
+    .user_picture img {
+        width: 50px;
+        height: 50px;
     }
 
-    .ticket_user_info img {
-        width: 35px; 
-        height: 35px;
-    }
-
-    .user_name span {
-        font-size: 14px; 
-    }
-
+    .user_name span,
     .user_github span {
-        font-size: 12px; 
-    }
-
-    .ticket_id p {
-        font-size: 16px; 
-    }
-}
-
-
-/* @media screen and (max-width: 480px) {
-    .ticket_section {
-        margin-top: 1rem;
-    }
-
-    .ticket img {
-        width: 100%; 
-    }
-
-    .ticket_user_info img {
-        width: 40px; 
-        height: 40px;
+        font-size: 0.8rem;
     }
 
     .ticket_id {
-        font-size: 16px; 
+        font-size: 1rem;
     }
-} */
+}
+
+@media screen and (max-width: 480px) {
+    .ticket_logo {
+        width: 50px;
+    }
+
+    .location {
+        font-size: 0.7rem;
+    }
+
+    .user_picture img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .user_name span,
+    .user_github span {
+        font-size: 0.7rem;
+    }
+
+    .ticket_id {
+        font-size: 0.9rem;
+    }
+}

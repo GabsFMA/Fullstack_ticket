@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-    rel="icon"
-    type="image/png"
-    sizes="32x32"
-    href="/src/assets/images/favicon-32x32.png"
-  />
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/src/assets/images/favicon-32x32.png"
+    />
     <title>Seu tiquete</title>
     <link rel="stylesheet" href="/src/style/ticketPage.css" />
-</head>
-<body>
+  </head>
+  <body>
     <header class="header">
-        <img src="/src/assets/images/logo-full.svg" alt="logo_full" />
-      </header>
-      <main>
-        <div class="greatins_section">
-            <div class="title_section">
-                <h1 class="congrats">Parabéns, <span>nome!</span></h1>
-                <h1>Seu tiquete está pronto.</h1>  
-            </div>
-            <p class="email_message">
-                Nos te enviamos seu tiquete para <br> <span>email</span> e vamos enviar <br>atualizações sobre o evento.
-            </p>            
+      <img src="/src/assets/images/logo-full.svg" alt="logo_full" />
+    </header>
+    <main>
+      <div class="greatins_section">
+        <div class="title_section">
+          <h1 class="congrats">Parabéns, <span>nome!</span></h1>
+          <h1>Seu tiquete está pronto.</h1>
         </div>
-        <div class="ticket_section">
-          <div class="ticket">
-            <img src="/src/assets/images/pattern-ticket.svg" alt="ticket">
-          </div>
+        <p class="email_message">
+          Nos te enviamos seu tiquete para <br />
+          <span>email</span> e vamos enviar <br />atualizações sobre o evento.
+        </p>
+      </div>
+      <div class="ticket_section">
+        <div class="ticket">
+          <img src="/src/assets/images/pattern-ticket.svg" alt="ticket">
           <div class="ticket_info">
-            <div class="ticket_main_info">
-              <div class="main_location">
-                <div>
-                  <img src="/src/assets/images/logo-full.svg" alt="logo" class="ticket_logo">
-                  <p class="location">Jan 31, 2025 / Austin, TX</p>
-                </div>
+            <!-- Primeira divisão: HEADER e FOOTER -->
+            <div class="ticket_content">
+              <!-- HEADER: Logo, data e localização -->
+              <div class="ticket_header">
+                <img src="/src/assets/images/logo-full.svg" alt="logo" class="ticket_logo">
+                <p class="location">Jan 31, 2025 / Austin, TX</p>
               </div>
-              <div class="ticket_user_info">
+      
+              <!-- FOOTER: Foto, nome e GitHub -->
+              <div class="ticket_footer">
                 <div class="user_picture">
                   <img src="/src/assets/images/image-avatar.jpg" alt="User Avatar">
                 </div>
@@ -53,13 +55,19 @@
                 </div>
               </div>
             </div>
+      
+            <!-- Segunda divisão: ID do ticket -->
             <div class="ticket_id">
               <p class="id" id="id">#609L04</p>
             </div>
           </div>
         </div>
-      </main>
+      </div>
+    </main>
     <script src="/src/javascript/form.js"></script>
-    <script src="https://kit.fontawesome.com/f9e7b324b1.js" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://kit.fontawesome.com/f9e7b324b1.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
