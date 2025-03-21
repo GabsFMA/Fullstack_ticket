@@ -49,7 +49,6 @@ removeButton.addEventListener('click', (e) => {
 
 changeButton.addEventListener('click', (e) => {
     e.preventDefault();
-    
     imagem.click();
 });
 
@@ -109,6 +108,18 @@ function checkInputs() {
         console.log(`GitHub: ${gitHubValue}`);
         window.location.href = '/src/pages/ticketPage.html';
     }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+        sessionStorage.setItem('userData', JSON.stringify({
+            name: nameValue,
+            email: emailValue,
+            github: gitHubValue,
+            image: reader.result 
+        }));
+        window.location.href = '/src/pages/ticketPage.html';
+    };
+    reader.readAsDataURL(imagemFile);
 }
 
 function setErrorFor(input, message) {

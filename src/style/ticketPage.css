@@ -103,6 +103,10 @@ body {
     color: transparent;
 }
 
+.greatins_section{
+    gap: 1rem;
+}
+
 .greatins_section p{
     color: #fff;
 }
@@ -120,6 +124,7 @@ body {
     max-width: 600px; 
     margin: 0 auto; 
     margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 .ticket img {
