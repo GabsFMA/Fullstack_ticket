@@ -40,3 +40,7 @@ function getCurrentDate() {
 
     return { day, month, year };
 }
+
+window.addEventListener('beforeunload', () => {
+  sessionStorage.clear();
+});
