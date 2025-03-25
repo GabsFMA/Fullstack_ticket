@@ -250,6 +250,10 @@ input[type="file"] {
     border-color: #e74c3c;
 }
 
+.input-section.sucess .input {
+    border-color: #fff;
+}
+
 .input-section.error .small {
     display: block;
     color: #e74c3c;

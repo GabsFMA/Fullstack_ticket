@@ -7,23 +7,25 @@ const uploadIcon = document.querySelector('.input_img_section img');
 const removeButton = document.querySelector('#remove');
 const changeButton = document.querySelector('#change');
 
+const MAX_IMAGE_SIZE = 500 * 1024; 
+const VALID_IMAGE_TYPES = ['image/png', 'image/jpeg'];
+
 imagem.addEventListener('change', () => {
     if (imagem.files && imagem.files[0]) {
         const file = imagem.files[0];
-        const validImageTypes = ['image/png', 'image/jpeg'];
 
-        if (validImageTypes.includes(file.type)) {
+        if (VALID_IMAGE_TYPES.includes(file.type)) {
             const reader = new FileReader();
 
             reader.onload = (e) => {
-                uploadIcon.src = e.target.result; 
-                uploadIcon.alt = 'Imagem carregada'; 
+                uploadIcon.src = e.target.result;
+                uploadIcon.alt = 'Imagem carregada';
                 setSuccessForImage();
             };
 
-            reader.readAsDataURL(file); 
+            reader.readAsDataURL(file);
         } else {
-            console.log('Formato de imagem inválido. Apenas PNG ou JPEG são permitidos.');
+            setErrorForImage('Formato de imagem inválido. Apenas PNG ou JPEG são permitidos.');
         }
     }
 });
@@ -35,16 +37,7 @@ form.addEventListener('submit', (e) => {
 
 removeButton.addEventListener('click', (e) => {
     e.preventDefault();
-    uploadIcon.src = '/src/assets/images/icon-upload.svg';
-    uploadIcon.alt = 'Upload icon';
-
-    const p = document.querySelector('.input_img_section p'); 
-    const buttons = document.querySelector('.input_img_section_buttons'); 
-
-    p.style.visibility = 'visible'; 
-    buttons.style.visibility = 'hidden'; 
-
-    imagem.value = '';
+    resetImageInput();
 });
 
 changeButton.addEventListener('click', (e) => {
@@ -53,73 +46,97 @@ changeButton.addEventListener('click', (e) => {
 });
 
 function checkInputs() {
-    console.log("Fui chamado");
-
     const emailValue = email.value.trim();
-    const imagemFile = imagem.files[0];
-    const nameValue = name.value.trim();    
+    const nameValue = name.value.trim();
     const gitHubValue = gitHub.value.trim();
 
-    let emailValid = false;
-    let imagemValid = false;
-    let nameValid = false;
-    let gitHubValid = false;
+    const emailValid = validateEmail(emailValue);
+    const nameValid = validateName(nameValue);
+    const gitHubValid = validateGitHub(gitHubValue);
+    const imagemValid = validateImage(imagem);
 
+    if (emailValid && nameValid && gitHubValid && imagemValid) {
+        saveDataToSessionStorage(emailValue, nameValue, gitHubValue, imagem.files[0]);
+    }
+}
+
+function validateEmail(emailValue) {
     if (emailValue === "") {
         setErrorFor(email, 'O email é obrigatório');
+        return false;
     } else if (!checkEmail(emailValue)) {
         setErrorFor(email, 'Insira um email válido');
+        return false;
     } else {
-        emailValid = true;
+        setSucessFor(email);
+        return true;
     }
+}
 
+function validateName(nameValue) {
     if (nameValue === "") {
         setErrorFor(name, 'O nome é obrigatório');
+        return false;
     } else {
-        nameValid = true;
+        setSucessFor(name);
+        return true;
     }
+}
 
+function validateGitHub(gitHubValue) {
     if (gitHubValue === "") {
         setErrorFor(gitHub, 'O usuário é obrigatório');
-    } else{
-        gitHubValid = true;
+        return false;
+    } else {
+        setSucessFor(gitHub);
+        return true;
     }
+}
 
+function validateImage(imagem) {
     if (imagem.files.length === 0) {
-        setErrorForImage(imagem, 'É obrigatório carregar uma foto');
+        setErrorForImage('É obrigatório carregar uma foto');
+        return false;
     } else {
         const imagemFile = imagem.files[0];
-        const validImageTypes = ['image/png', 'image/jpeg'];
-        if (!validImageTypes.includes(imagemFile.type)) {
-            setErrorForImage(imagem, 'A imagem deve ser PNG ou JPEG');
-        } else if (imagemFile.size > 500 * 1024) {
-            setErrorForImage(imagem, 'A imagem deve ser menor que 500KB');
+        if (!VALID_IMAGE_TYPES.includes(imagemFile.type)) {
+            setErrorForImage('A imagem deve ser PNG ou JPEG');
+            return false;
+        } else if (imagemFile.size > MAX_IMAGE_SIZE) {
+            setErrorForImage('A imagem deve ser menor que 500KB');
+            return false;
         } else {
-            console.log(`Imagem válida: ${imagemFile.size / 1024} KB`);
-            imagemValid = true;
+            setSuccessForImage();
+            return true;
         }
     }
+}
 
-    if (emailValid && imagemValid && nameValid && gitHubValid) {
-        console.log("Dados aprovados:");
-        console.log(`Imagem: ${imagemFile.name}, Tamanho: ${(imagemFile.size / 1024).toFixed(2)} KB, Tipo: ${imagemFile.type}`);
-        console.log(`Nome: ${nameValue}`);
-        console.log(`Email: ${emailValue}`);
-        console.log(`GitHub: ${gitHubValue}`);
-        window.location.href = '/src/pages/ticketPage.html';
-    }
-
+function saveDataToSessionStorage(emailValue, nameValue, gitHubValue, imagemFile) {
     const reader = new FileReader();
     reader.onload = () => {
         sessionStorage.setItem('userData', JSON.stringify({
             name: nameValue,
             email: emailValue,
             github: gitHubValue,
-            image: reader.result 
+            image: reader.result
         }));
         window.location.href = '/src/pages/ticketPage.html';
     };
     reader.readAsDataURL(imagemFile);
+}
+
+function resetImageInput() {
+    uploadIcon.src = '/src/assets/images/icon-upload.svg';
+    uploadIcon.alt = 'Upload icon';
+
+    const p = document.querySelector('.input_img_section p');
+    const buttons = document.querySelector('.input_img_section_buttons');
+
+    p.style.visibility = 'visible';
+    buttons.style.visibility = 'hidden';
+
+    imagem.value = '';
 }
 
 function setErrorFor(input, message) {
@@ -130,26 +147,32 @@ function setErrorFor(input, message) {
     inputSection.className = 'input-section error';
 }
 
-function setErrorForImage(message) {
-    const formInfoSection = document.querySelector('.form_info_section'); 
-    const small = formInfoSection.querySelector('small'); 
+function setSucessFor(input) {
+    const inputSection = input.parentElement;
+    const small = inputSection.querySelector('small');
 
-    small.innerText = message; 
-    formInfoSection.className = 'form_info_section error'; 
-    
+    small.innerText = "";
+    inputSection.className = 'input-section sucess';
 }
-function setSuccessForImage() {
-    const p = document.querySelector('.input_img_section p'); 
-    const buttons = document.querySelector('.input_img_section_buttons'); 
 
-    p.style.visibility = 'hidden'; 
-    buttons.style.visibility = 'visible'; 
+function setErrorForImage(message) {
+    const formInfoSection = document.querySelector('.form_info_section');
+    const small = formInfoSection.querySelector('small');
+
+    small.innerText = message;
+    formInfoSection.className = 'form_info_section error';
+}
+
+function setSuccessForImage() {
+    const p = document.querySelector('.input_img_section p');
+    const buttons = document.querySelector('.input_img_section_buttons');
+
+    p.style.visibility = 'hidden';
+    buttons.style.visibility = 'visible';
 }
 
 function checkEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-      email
+        email
     );
-  }
-
-  
+}
