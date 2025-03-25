@@ -94,6 +94,9 @@ function validateGitHub(gitHubValue) {
 }
 
 function validateImage(imagem) {
+    const formInfoSection = document.querySelector('.form_info_section');
+    const small = formInfoSection.querySelector('small');
+
     if (imagem.files.length === 0) {
         setErrorForImage('É obrigatório carregar uma foto');
         return false;
@@ -106,7 +109,7 @@ function validateImage(imagem) {
             setErrorForImage('A imagem deve ser menor que 500KB');
             return false;
         } else {
-            setSuccessForImage();
+            setSuccessForImage(); 
             return true;
         }
     }
@@ -132,6 +135,11 @@ function resetImageInput() {
 
     const p = document.querySelector('.input_img_section p');
     const buttons = document.querySelector('.input_img_section_buttons');
+    const formInfoSection = document.querySelector('.form_info_section');
+    const small = formInfoSection.querySelector('small');
+
+    small.innerText = 'Carregue sua foto (JPG ou PNG, máximo: 500KB).';
+    formInfoSection.className = 'form_info_section';
 
     p.style.visibility = 'visible';
     buttons.style.visibility = 'hidden';
@@ -166,6 +174,11 @@ function setErrorForImage(message) {
 function setSuccessForImage() {
     const p = document.querySelector('.input_img_section p');
     const buttons = document.querySelector('.input_img_section_buttons');
+    const formInfoSection = document.querySelector('.form_info_section');
+    const small = formInfoSection.querySelector('small');
+
+    small.innerText = "";
+    formInfoSection.className = 'form_info_section sucess';
 
     p.style.visibility = 'hidden';
     buttons.style.visibility = 'visible';
